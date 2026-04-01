@@ -7,6 +7,7 @@ A full-stack web-based hotel management system built with **React + TypeScript**
 ## 📋 Table of Contents
 
 - [Tech Stack](#tech-stack)
+- [Current Status](#current-status)
 - [Project Structure](#project-structure)
 - [Development Roadmap](#development-roadmap)
   - [Step 1 – Project Setup](#step-1--project-setup)
@@ -22,6 +23,18 @@ A full-stack web-based hotel management system built with **React + TypeScript**
   - [Step 11 – Events & Catering Management](#step-11--events--catering-management)
 - [Getting Started](#getting-started)
 - [Environment Variables](#environment-variables)
+
+---
+
+## Current Status
+
+The backend foundation is in place and currently includes:
+
+- Express server bootstrap with JSON and CORS middleware
+- `GET /health` health-check endpoint
+- Prisma configured for PostgreSQL using `@prisma/adapter-pg`
+- Initial Prisma migration for the core models: `User`, `Room`, `Guest`, and `Reservation`
+- TypeScript build and production start scripts for the server
 
 ---
 
@@ -268,8 +281,8 @@ hotel-management/
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-org/hotel-management.git
-cd hotel-management
+git clone https://github.com/davido200/HotelSystem.git
+cd HotelSystem
 
 # Start PostgreSQL and Redis with Docker
 docker-compose up -d
@@ -292,8 +305,20 @@ npm install
 # Backend (from /server)
 npm run dev
 
+# Backend production build (from /server)
+npm run build
+npm start
+
 # Frontend (from /client)
 npm run dev
+```
+
+### Backend Health Check
+
+Once the backend is running, verify it with:
+
+```bash
+curl http://localhost:5000/health
 ```
 
 ---
